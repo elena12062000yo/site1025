@@ -1,0 +1,45 @@
+{
+  "bot": {
+    "username": "@alyx_design_bot",
+    "token": "8307209669:AAFl5JKEBUPkJ8akr01RfXKwvLTNEoQPLqQ",
+    "owner_id": 1014948227,
+    "website": "https://www.alyxbabysitter.ru"
+  },
+  "webapp": {
+    "url": "https://www.alyxbabysitter.ru",
+    "name": "Alyx Portfolio",
+    "short_name": "Portfolio"
+  },
+  "settings": {
+    "allow_groups": false,
+    "allow_channels": false,
+    "inline_mode": true,
+    "privacy_mode": false
+  },
+  "commands": [
+    {
+      "command": "start",
+      "description": "🏠 Главная страница"
+    },
+    {
+      "command": "portfolio", 
+      "description": "🎨 Посмотреть портфолио"
+    },
+    {
+      "command": "services",
+      "description": "💎 Услуги и цены"
+    },
+    {
+      "command": "contact",
+      "description": "📞 Связаться со мной"
+    },
+    {
+      "command": "about",
+      "description": "ℹ️ О дизайнере"
+    },
+    {
+      "command": "help",
+      "description": "❓ Помощь"
+    }
+  ]
+}

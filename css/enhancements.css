@@ -1,0 +1,669 @@
+/* ПРЕМИУМ УЛУЧШЕНИЯ ДЛЯ ALYX PORTFOLIO */
+
+/* 1. УЛУЧШЕННАЯ ВИЗУАЛЬНАЯ ИЕРАРХИЯ */
+:root {
+    /* Серебряная цветовая палитра */
+    --gradient-primary: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+    --gradient-accent: linear-gradient(135deg, #e5e5e5 0%, #a0a0a0 100%);
+    --gradient-silver: linear-gradient(135deg, #f5f5f5 0%, #c0c0c0 100%);
+    
+    /* Улучшенные тени */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.2);
+    --shadow-dramatic: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 20px rgba(192, 192, 192, 0.3);
+    
+    /* Анимационные переменные */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 2. HERO SECTION - ДОБАВЛЯЕМ МАГИЮ */
+.hero-enhanced {
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(192, 192, 192, 0.1) 0%, transparent 70%);
+}
+
+.hero-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(192, 192, 192, 0.05) 50%, transparent 70%);
+    pointer-events: none;
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* 3. УЛУЧШЕННЫЕ КАРТОЧКИ ПОРТФОЛИО */
+.portfolio-card-enhanced {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.portfolio-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+    pointer-events: none;
+}
+
+.portfolio-card-enhanced:hover::before {
+    left: 100%;
+}
+
+.portfolio-card-enhanced:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-dramatic), var(--shadow-glow);
+    border-color: rgba(192, 192, 192, 0.2);
+}
+
+/* Убираем возможные прозрачные рамки внизу карточек */
+.portfolio-card-enhanced .aspect-square,
+.portfolio-card-enhanced .aspect-video,
+.portfolio-card-enhanced .aspect-portrait {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.portfolio-card-enhanced .absolute.bottom-2 {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    pointer-events: none;
+}
+
+/* 4. ИНТЕРАКТИВНЫЕ КНОПКИ */
+.btn-enhanced {
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-enhanced:hover::before {
+    opacity: 1;
+}
+
+.btn-enhanced:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-enhanced span {
+    position: relative;
+    z-index: 1;
+}
+
+/* 5. УЛУЧШЕННАЯ ТИПОГРАФИКА */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heading-enhanced {
+    position: relative;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.heading-enhanced::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    opacity: 0;
+    animation: slideInUp 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 6. МОДАЛЬНЫЕ ОКНА - ПРЕМИУМ СТИЛЬ */
+.modal-enhanced {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-content-enhanced {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-dramatic);
+}
+
+/* 7. НАВИГАЦИЯ - FLOATING STYLE */
+.nav-enhanced {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 8px;
+    margin: 16px;
+    box-shadow: var(--shadow-medium);
+}
+
+.nav-item-enhanced {
+    border-radius: 25px;
+    padding: 8px 16px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item-enhanced.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.nav-item-enhanced:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 8. ЭФФЕКТЫ ЗАГРУЗКИ */
+.loading-enhanced {
+    position: relative;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* 9. СКРОЛЛБАР СТИЛИЗАЦИЯ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-accent);
+}
+
+/* 10. КУРСОР - ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
+.cursor-enhanced {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(192, 192, 192, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+.cursor-enhanced.hover {
+    transform: scale(1.5);
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 11. ПАРАЛЛАКС ЭФФЕКТЫ */
+.parallax-element {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+/* 12. УЛУЧШЕННЫЕ ТЕГИ */
+.tag-enhanced {
+    background: rgba(0, 0, 0, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    transition: var(--transition-smooth) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+.tag-enhanced:hover {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 13. АНИМИРОВАННЫЕ ИКОНКИ */
+.icon-enhanced {
+    transition: var(--transition-smooth);
+}
+
+.icon-enhanced:hover {
+    transform: rotate(10deg) scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(192, 192, 192, 0.3));
+}
+
+/* 14. МИКРОАНИМАЦИИ ПРИ СКРОЛЛЕ */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 15. СЕРЕБРЯНЫЙ ЗАГОЛОВОК С ЭФФЕКТАМИ */
+.hero-title-enhanced {
+    position: relative;
+    background: linear-gradient(45deg, #c0c0c0, #e5e5e5, #f5f5f5, #c0c0c0);
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease infinite, glow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.7));
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    from { 
+        filter: drop-shadow(0 0 20px rgba(192, 192, 192, 0.7)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.3));
+    }
+    to { 
+        filter: drop-shadow(0 0 30px rgba(192, 192, 192, 0.9)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.5));
+    }
+}
+
+/* Глитч эффект для заголовка */
+.hero-title-glitch-1 {
+    animation: glitch-1 2s infinite;
+}
+
+.hero-title-glitch-2 {
+    animation: glitch-2 2s infinite;
+}
+
+@keyframes glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    15%, 49% {
+        transform: translate(-2px, 0);
+        opacity: 0.7;
+    }
+}
+
+@keyframes glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    21%, 62% {
+        transform: translate(2px, 0);
+        opacity: 0.7;
+    }
+}
+
+/* Эффект печатающегося текста */
+.typing-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.typing-effect::after {
+    content: '|';
+    position: absolute;
+    right: -5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Светящаяся линия под заголовком */
+.glow-line {
+    animation: lineGlow 3s ease-in-out infinite;
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+@keyframes lineGlow {
+    0%, 100% { 
+        width: 6rem; 
+        opacity: 0.5;
+    }
+    50% { 
+        width: 12rem; 
+        opacity: 1;
+    }
+}
+
+/* Кибер стиль для подзаголовка */
+.cyber-text {
+    position: relative;
+    letter-spacing: 0.1em;
+}
+
+.cyber-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.1), transparent);
+    animation: scan 2s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Улучшенная floating анимация */
+.floating {
+    animation: floatEnhanced 6s ease-in-out infinite;
+}
+
+@keyframes floatEnhanced {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-10px) rotate(0.5deg); 
+    }
+    50% { 
+        transform: translateY(-5px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-15px) rotate(-0.5deg); 
+    }
+}
+
+/* Адаптивность для заголовков */
+@media (max-width: 768px) {
+    .hero-title-enhanced {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+    
+    .cyber-text {
+        font-size: 1.1rem;
+    }
+    
+    .hero-title-glitch-1,
+    .hero-title-glitch-2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* 16. ЭКСТРЕМАЛЬНОЕ ИСПРАВЛЕНИЕ ФОНОВОГО ВИДЕО */
+/* Постоянный видимый фоновый градиент */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, 
+        #0a0a0a 0%, 
+        #1a1a1a 25%, 
+        #2a2a2a 50%, 
+        #1a1a1a 75%, 
+        #0a0a0a 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -100;
+}
+
+#background-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -10 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+/* Стили для нового фонового видео уже в Tailwind классах */
+
+/* Убираем ЛЮБЫЕ отступы */
+body, html {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+/* Новая система фонового видео работает через Tailwind CSS классы */
+
+/* Удален дополнительный слой, который мог мешать отображению видео */
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ИСПРАВЛЕНИЕ ФОНОВОГО ВИДЕО - ПРАВИЛЬНОЕ ПОКРЫТИЕ ЭКРАНА */
+#background-video video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    transform: translate(-50%, -50%) !important;
+    object-fit: cover !important;
+    z-index: -5 !important;
+    background: transparent !important;
+}
+
+/* 16.5 СТИЛИ КНОПОК КАТЕГОРИЙ */
+.category-btn {
+    color: white !important;
+    background: rgba(75, 85, 99, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    min-height: 36px;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.category-btn.active {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    border-color: rgba(192, 192, 192, 0.5) !important;
+    box-shadow: 0 4px 12px rgba(192, 192, 192, 0.3) !important;
+}
+
+.category-btn:hover:not(.active) {
+    background: rgba(107, 114, 128, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 17. RESPONSIVE ENHANCEMENTS */
+@media (max-width: 768px) {
+    .portfolio-card-enhanced:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .nav-enhanced {
+        margin: 8px;
+        border-radius: 20px;
+    }
+    
+    .cursor-enhanced {
+        display: none;
+    }
+    
+    /* Упрощенные анимации для мобильных */
+    .mobile-simplified * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    .mobile-simplified .floating {
+        animation: none;
+    }
+    
+    .mobile-simplified .parallax-element {
+        transform: none !important;
+    }
+    
+    /* Улучшенные сенсорные цели */
+    .category-btn {
+        min-height: 44px;
+        padding: 12px 16px;
+        color: white !important;
+        background: rgba(75, 85, 99, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        font-weight: 500 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .category-btn.active {
+        background: var(--gradient-primary) !important;
+        color: white !important;
+        border-color: rgba(192, 192, 192, 0.5) !important;
+        box-shadow: 0 4px 12px rgba(192, 192, 192, 0.3) !important;
+    }
+    
+    .category-btn:hover:not(.active) {
+        background: rgba(107, 114, 128, 0.9) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    .case-item {
+        min-height: 44px;
+    }
+    
+    /* Больше пространства для контента */
+    .heading-enhanced {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .text-gradient {
+        font-size: 1.8rem;
+    }
+}
+
+/* 18. CURSOR TRAIL ENHANCEMENT */
+@media (min-width: 768px) {
+    body {
+        cursor: none !important;
+    }
+    
+    * {
+        cursor: none !important;
+    }
+    
+    /* Custom cursor dot */
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10001;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Hide cursor trail on mobile */
+@media (max-width: 767px) {
+    body {
+        cursor: auto !important;
+    }
+    
+    * {
+        cursor: auto !important;
+    }
+}
